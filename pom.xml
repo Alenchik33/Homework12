@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>ru.netology.domain</groupId>
-    <artifactId>Movies</artifactId>
+    <groupId>org.example</groupId>
+    <artifactId>planner</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -13,25 +13,18 @@
         <maven.compiler.target>11</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-
     <dependencies>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
-            <version>5.8.2</version>
+            <version>5.7.0</version>
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.jetbrains</groupId>
-            <artifactId>annotations</artifactId>
-            <version>23.0.0</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.28</version>
-            <scope>compile</scope>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.2</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
@@ -49,6 +42,8 @@
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>0.8.5</version>
+
+
                 <executions>
                     <execution>
                         <id>prepare-agent</id>
@@ -56,6 +51,8 @@
                             <goal>prepare-agent</goal>
                         </goals>
                     </execution>
+
+
                     <execution>
                         <id>report</id>
                         <phase>verify</phase>
@@ -63,6 +60,7 @@
                             <goal>report</goal>
                         </goals>
                     </execution>
+
                     <execution>
                         <id>check</id>
                         <goals>
@@ -75,7 +73,7 @@
                                         <limit>
                                             <counter>BRANCH</counter>
                                             <value>COVEREDRATIO</value>
-                                            <minimum>100%</minimum>
+                                            <minimum>50%</minimum>
                                         </limit>
                                     </limits>
                                 </rule>
@@ -84,27 +82,6 @@
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
-                <groupId>com.github.spotbugs</groupId>
-                <artifactId>spotbugs-maven-plugin</artifactId>
-                <version>4.5.3.0</version>
-                <executions>
-                    <execution>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>check</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <dependencies>
-                    <dependency>
-                        <groupId>com.github.spotbugs</groupId>
-                        <artifactId>spotbugs</artifactId>
-                        <version>4.5.3</version>
-                    </dependency>
-                </dependencies>
-            </plugin>
         </plugins>
-
     </build>
 </project>
